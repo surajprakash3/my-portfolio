@@ -227,11 +227,20 @@ const AdminPortal = () => {
         alert('Error: Could not determine user ID. Please try logging in again.');
         return;
       }
-      await updateProfile(userId, profileData);
+      if (!profileData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profileData.email)) {
+        alert('Please enter a valid email before saving.');
+        return;
+      }
+      const sanitizedProfile = {
+        ...profileData,
+        email: profileData.email.trim().toLowerCase(),
+      };
+      await updateProfile(userId, sanitizedProfile);
       await fetchProfile(userId);
       alert('Profile updated successfully!');
     } catch (error) {
-      alert('Failed to update profile: ' + error.message);
+      const msg = error?.response?.data?.message || error.message;
+      alert('Failed to update profile: ' + msg);
     }
   };
 
