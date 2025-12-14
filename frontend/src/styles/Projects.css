@@ -3,6 +3,9 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  background: var(--section-bg);
+  min-height: calc(100vh - 70px);
+  transition: background 0.3s ease;
 }
 
 .page-header {
@@ -12,25 +15,25 @@
 
 .page-header h1 {
   font-size: 2.5rem;
-  color: var(--text-dark);
+  color: var(--page-text);
   margin-bottom: 0.5rem;
 }
 
 .page-header p {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--page-text);
+  opacity: 1;
 }
 
 .login-prompt {
   text-align: center;
   padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.08);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-  color: var(--text-light);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--card-text);
   font-size: 1.1rem;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .login-prompt p {
@@ -47,13 +50,12 @@
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.08);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-  color: var(--text-light);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--card-text);
   font-size: 1.1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 @media (max-width: 768px) {

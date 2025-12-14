@@ -1,5 +1,5 @@
 .service-form {
-  background: #fff;
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -13,17 +13,19 @@
   display: block;
   margin-bottom: 5px;
   font-weight: 600;
-  color: #333;
+  color: var(--card-text);
 }
 
 .service-form input,
 .service-form textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   font-family: Arial, sans-serif;
   font-size: 14px;
+  background: var(--input-bg);
+  color: var(--input-text);
 }
 
 .service-form textarea {
@@ -46,8 +48,8 @@
 }
 
 .service-form .submit-btn {
-  background: #4CAF50;
-  color: white;
+  background: var(--primary-color);
+  color: var(--button-text);
 }
 
 .service-form .submit-btn:hover {
@@ -56,7 +58,7 @@
 
 .service-form .cancel-btn {
   background: #f44336;
-  color: white;
+  color: var(--button-text);
 }
 
 .service-form .cancel-btn:hover {

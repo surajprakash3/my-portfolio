@@ -1,12 +1,12 @@
 .experience-card {
-  background: transparent;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.3s ease;
-  color: #fff;
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  color: var(--card-text);
 }
 
 .experience-card:hover {
@@ -23,13 +23,13 @@
 .experience-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--card-text);
   margin: 0;
 }
 
 .current-badge {
   background-color: var(--success-color);
-  color: white;
+  color: var(--button-text);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -38,18 +38,19 @@
 
 .experience-company {
   font-size: 1rem;
-  color: #fff;
+  color: var(--card-text);
   margin: 0.25rem 0 0.5rem 0;
 }
 
 .experience-dates {
   font-size: 0.9rem;
-  color: #fff;
+  color: var(--card-text);
+  opacity: 0.8;
   margin-bottom: 0.75rem;
 }
 
 .experience-description {
-  color: #fff;
+  color: var(--card-text);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -73,7 +74,7 @@
 
 .edit-btn {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--button-text);
 }
 
 .edit-btn:hover {
@@ -82,7 +83,7 @@
 
 .delete-btn {
   background-color: var(--error-color);
-  color: white;
+  color: var(--button-text);
 }
 
 .delete-btn:hover {

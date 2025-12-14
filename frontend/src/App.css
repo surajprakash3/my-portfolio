@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
 
 :root {
-  --primary-color: #a855f7; /* neon purple */
+  --primary-color: #a855f7;
   --secondary-color: #7c3aed;
   --accent-color: #c084fc;
   --accent-strong: #9b5cf5;
@@ -27,41 +27,75 @@
   --nav-border: rgba(168, 85, 247, 0.2);
   --nav-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
   --page-text: #d8ecf8;
+  --page-bg: #050910;
   --card-bg: rgba(14, 27, 53, 0.65);
   --card-text: #e9f7ff;
   --card-border: rgba(168, 85, 247, 0.2);
+  --hero-text: #ffffff;
+  --section-bg: transparent;
+  --input-bg: rgba(14, 27, 53, 0.5);
+  --input-text: #e9f7ff;
+  --input-border: rgba(168, 85, 247, 0.3);
 }
 
 [data-theme="light"] {
-  --nav-bg: #ffffff;
-  --nav-text: #1a1a2e;
-  --nav-border: rgba(0, 0, 0, 0.08);
-  --nav-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --page-text: #1a1a2e;
-  --text-dark: #1a1a2e;
-  --text-light: #2a2a3c;
-  --light-bg: #f5f5f5;
-  --dark-bg: #0a0a1a;
-  --border-color: #e0e0e0;
-  --card-bg: #ffffff;
-  --card-text: #1a1a2e;
-  --card-border: #e5e5e5;
+  --primary-color: #9333ea;
+  --secondary-color: #7c3aed;
+  --accent-color: #a855f7;
+  --nav-bg: rgba(255, 255, 255, 0.75);
+  --nav-text: #0b0b14;
+  --nav-border: rgba(147, 51, 234, 0.15);
+  --nav-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --page-text: #0b0b14;
+  --page-bg: linear-gradient(135deg, #fef5ff 0%, #f5f3ff 25%, #ede9fe 50%, #faf5ff 75%, #fef5ff 100%);
+  --text-dark: #0b0b14;
+  --text-light: #121226;
+  --light-bg: #ffffff;
+  --dark-bg: #f5f5f5;
+  --border-color: rgba(147, 51, 234, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-text: #0b0b14;
+  --card-border: rgba(147, 51, 234, 0.15);
+  --hero-text: #0b0b14;
+  --section-bg: rgba(255, 255, 255, 0.6);
+  --input-bg: #ffffff;
+  --input-text: #0b0b14;
+  --input-border: rgba(147, 51, 234, 0.3);
+  --button-text: #ffffff;
+  --anim-color-1: #fef5ff;
+  --anim-color-2: #f5f3ff;
+  --anim-color-3: #ede9fe;
+  --anim-color-4: #faf5ff;
 }
 
 [data-theme="dark"] {
-  --nav-bg: rgba(10, 10, 26, 0.9);
+  --primary-color: #a855f7;
+  --secondary-color: #7c3aed;
+  --accent-color: #c084fc;
+  --nav-bg: rgba(10, 10, 26, 0.7);
   --nav-text: #e4e4e7;
-  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-border: rgba(168, 85, 247, 0.2);
   --nav-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   --page-text: #e4e4e7;
+  --page-bg: #050910;
   --text-dark: #e4e4e7;
   --text-light: #f5f5f5;
   --light-bg: #0f0f1e;
   --dark-bg: #0a0a1a;
-  --border-color: rgba(255, 255, 255, 0.12);
+  --border-color: rgba(168, 85, 247, 0.25);
   --card-bg: rgba(20, 20, 35, 0.78);
   --card-text: #e4e4e7;
-  --card-border: rgba(255, 255, 255, 0.12);
+  --card-border: rgba(168, 85, 247, 0.2);
+  --hero-text: #ffffff;
+  --section-bg: transparent;
+  --input-bg: rgba(14, 27, 53, 0.5);
+  --input-text: #e9f7ff;
+  --input-border: rgba(168, 85, 247, 0.3);
+  --button-text: #ffffff;
+  --anim-color-1: #0a1224;
+  --anim-color-2: #0b152c;
+  --anim-color-3: #0d1b35;
+  --anim-color-4: #0c1a30;
 }
 
 html {
@@ -71,11 +105,34 @@ html {
 
 body {
   font-family: 'Space Grotesk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #050910;
+  background: var(--page-bg);
   color: var(--page-text);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--anim-color-1) 0%,
+    var(--anim-color-2) 25%,
+    var(--anim-color-3) 50%,
+    var(--anim-color-4) 75%,
+    var(--anim-color-1) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: -1;
+  opacity: 0.7;
+  transition: opacity 0.4s ease;
 }
 
 #root, .app {

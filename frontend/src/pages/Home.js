@@ -12,6 +12,7 @@ import RecommendationCard from '../components/RecommendationCard';
 import ServiceCard from '../components/ServiceCard';
 import CareerBreakCard from '../components/CareerBreakCard';
 import EventCard from '../components/EventCard';
+import SocialMediaSection from '../components/SocialMediaSection';
 import LoadingSpinner from '../components/LoadingSpinner';
 import '../styles/Home.css';
 
@@ -270,6 +271,9 @@ const Home = () => {
           </div>
         </section>
       )}
+
+      {/* Social Media Section */}
+      <SocialMediaSection />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 .career-break-card {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--card-text);
   transition: transform 0.3s ease;
 }
 
@@ -22,24 +22,24 @@
 .career-break-card h3 {
   margin: 0;
   font-size: 18px;
-  color: #fff;
+  color: var(--card-text);
 }
 
 .break-dates {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--card-text);
   font-size: 13px;
   margin: 5px 0;
 }
 
 .break-reason {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--card-text);
   font-size: 14px;
   margin: 8px 0;
   font-weight: 500;
 }
 
 .break-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--card-text);
   font-size: 14px;
   margin: 10px 0;
   line-height: 1.5;
@@ -62,7 +62,7 @@
 
 .edit-btn {
   background: #2196F3;
-  color: white;
+  color: var(--button-text);
 }
 
 .edit-btn:hover {
@@ -71,7 +71,7 @@
 
 .delete-btn {
   background: #f44336;
-  color: white;
+  color: var(--button-text);
 }
 
 .delete-btn:hover {

@@ -3,10 +3,10 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
-  color: #fff;
+  color: var(--card-text);
   max-width: 900px;
 }
 
@@ -48,17 +48,17 @@
 .event-form .form-group label {
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  color: var(--card-text);
 }
 
 .event-form .form-group input,
 .event-form .form-group select,
 .event-form .form-group textarea {
   padding: 10px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 4px;
-  color: #333;
+  color: var(--input-text);
   font-size: 14px;
   font-family: inherit;
 }
@@ -93,9 +93,9 @@
 
 .add-item-btn {
   padding: 8px 16px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: var(--button-bg, var(--primary-color));
+  border: 1px solid var(--primary-color);
+  color: var(--button-text);
   border-radius: 4px;
   cursor: pointer;
   font-size: 13px;
@@ -122,10 +122,10 @@
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 20px;
-  color: #fff;
+  color: var(--button-text);
   font-size: 13px;
 }
 
@@ -146,9 +146,9 @@
 
 .event-form .submit-btn {
   padding: 12px 24px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: var(--button-text);
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;

@@ -69,6 +69,7 @@ const careerBreakRoutes = require('./routes/careerbreaks');
 const eventRoutes = require('./routes/events');
 const profileRoutes = require('./routes/profile');
 const portfolioRoutes = require('./routes/portfolio');
+const socialMediaRoutes = require('./routes/socialmedia');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
@@ -84,6 +85,7 @@ app.use('/api/careerbreaks', careerBreakRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/portfolio', portfolioRoutes);
+app.use('/api/socialmedia', socialMediaRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

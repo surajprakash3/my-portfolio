@@ -1,15 +1,17 @@
 /* Navbar Styles */
 .navbar {
-  background: linear-gradient(120deg, rgba(168, 85, 247, 0.14), rgba(124, 58, 237, 0.12));
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  background: var(--nav-bg);
+  box-shadow: var(--nav-shadow);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 100;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.25);
-  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--nav-border);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar-container {
@@ -24,11 +26,12 @@
 .navbar-logo {
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--text-light);
+  color: var(--nav-text);
   text-decoration: none;
   letter-spacing: 0.08em;
   font-family: 'JetBrains Mono', 'Space Grotesk', sans-serif;
-  text-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+  transition: color 0.3s ease;
 }
 
 .navbar-menu {
@@ -40,7 +43,7 @@
 
 .navbar-menu a {
   text-decoration: none;
-  color: var(--text-light);
+  color: var(--nav-text);
   font-weight: 700;
   letter-spacing: 0.02em;
   position: relative;
@@ -75,7 +78,7 @@
 
 .logout-btn {
   background: transparent;
-  color: var(--text-light);
+  color: var(--nav-text);
   border: 1px solid rgba(168, 85, 247, 0.5);
   padding: 0.55rem 1.1rem;
   border-radius: 10px;
@@ -112,8 +115,8 @@
 
 .theme-toggle {
   border: 1px solid rgba(168, 85, 247, 0.5);
-  background: rgba(12, 10, 26, 0.5);
-  color: var(--text-light);
+  background: var(--card-bg);
+  color: var(--nav-text);
   padding: 0.45rem 1rem;
   border-radius: 999px;
   cursor: pointer;
@@ -122,7 +125,7 @@
   align-items: center;
   gap: 0.35rem;
   transition: all 0.25s ease;
-  box-shadow: 0 0 14px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.15);
   letter-spacing: 0.02em;
 }
 

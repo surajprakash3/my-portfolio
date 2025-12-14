@@ -25,6 +25,8 @@ import CareerBreakForm from '../components/CareerBreakForm';
 import CareerBreakCard from '../components/CareerBreakCard';
 import EventForm from '../components/EventForm';
 import EventCard from '../components/EventCard';
+import SocialMediaSection from '../components/SocialMediaSection';
+import SocialMediaForm from '../components/SocialMediaForm';
 import LoadingSpinner from '../components/LoadingSpinner';
 import '../styles/AdminPortal.css';
 
@@ -502,6 +504,12 @@ const AdminPortal = () => {
           onClick={() => setActiveTab('events')}
         >
           Events
+        </button>
+        <button
+          className={`tab ${activeTab === 'social' ? 'active' : ''}`}
+          onClick={() => setActiveTab('social')}
+        >
+          Social Media
         </button>
       </div>
 
@@ -1237,6 +1245,16 @@ const AdminPortal = () => {
               <p className="empty-message">No events yet. Add one to get started!</p>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Social Media Tab */}
+      {activeTab === 'social' && (
+        <div className="admin-content">
+          <SocialMediaForm 
+            onAdd={() => window.location.reload()}
+            onUpdate={() => window.location.reload()}
+          />
         </div>
       )}
     </div>

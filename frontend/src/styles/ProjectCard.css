@@ -1,10 +1,10 @@
 .project-card {
-  background: transparent;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: none;
-  transition: transform 0.3s ease;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card:hover {
@@ -19,17 +19,17 @@
 
 .project-content {
   padding: 1.5rem;
-  color: #fff;
+  color: var(--card-text);
 }
 
 .project-title {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--card-text);
 }
 
 .project-description {
-  color: #fff;
+  color: var(--card-text);
   margin-bottom: 1rem;
   line-height: 1.5;
 }
@@ -42,12 +42,14 @@
 }
 
 .tech-badge {
-  background-color: #e3f2fd;
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--button-text);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
+  opacity: 0.85;
+  transition: background-color 0.3s ease;
 }
 
 .project-links {
@@ -86,7 +88,7 @@
 
 .edit-btn {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--button-text);
 }
 
 .edit-btn:hover {
@@ -95,7 +97,7 @@
 
 .delete-btn {
   background-color: var(--error-color);
-  color: white;
+  color: var(--button-text);
 }
 
 .delete-btn:hover {
