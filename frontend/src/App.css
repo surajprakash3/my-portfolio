@@ -89,6 +89,7 @@ body {
   position: relative;
   z-index: 1;
   background: transparent;
+  padding-top: 70px;
 }
 
 .vanta-wrapper {
