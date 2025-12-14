@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { usePortfolio } from '../hooks/usePortfolio';
@@ -31,6 +32,7 @@ const AdminPortal = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const isAdminLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
   const {
     profile,
     projects,
@@ -142,6 +144,19 @@ const AdminPortal = () => {
     graduationYear: '',
   });
 
+  const resolveUserId = async () => {
+    if (user?.id) return user.id;
+    if (portfolioUserId) return portfolioUserId;
+    if (profile?._id) return profile._id;
+    const resp = await axios.get(`${API_URL}/portfolio/user`);
+    const id = resp.data?._id;
+    if (id) {
+      localStorage.setItem('portfolioUserId', id);
+      return id;
+    }
+    return null;
+  };
+
   useEffect(() => {
     const userId = user?.id || portfolioUserId;
     if (userId) {
@@ -207,12 +222,13 @@ const AdminPortal = () => {
 
   const handleProfileSubmit = async () => {
     try {
-      const userId = user?.id || portfolioUserId;
+      const userId = await resolveUserId();
       if (!userId) {
         alert('Error: Could not determine user ID. Please try logging in again.');
         return;
       }
       await updateProfile(userId, profileData);
+      await fetchProfile(userId);
       alert('Profile updated successfully!');
     } catch (error) {
       alert('Failed to update profile: ' + error.message);
@@ -532,7 +548,7 @@ const AdminPortal = () => {
                 type="email"
                 name="email"
                 value={profileData.email}
-                disabled
+                onChange={handleProfileChange}
               />
             </div>
 

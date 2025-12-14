@@ -62,7 +62,7 @@
   padding: 1rem 1.5rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #666;
+  color: var(--text-light);
   cursor: pointer;
   transition: all 0.3s;
   border-bottom: 3px solid transparent;
@@ -80,10 +80,11 @@
 
 /* Content */
 .admin-content {
-  background: white;
+  background: transparent;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.08);
 }
 
 .admin-content h2 {
@@ -105,18 +106,20 @@
 }
 
 .add-btn {
-  background-color: var(--success-color);
-  color: white;
-  border: none;
+  background: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--card-border);
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.18);
 }
 
 .add-btn:hover {
-  background-color: #15803d;
+  color: var(--primary-color);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.28);
 }
 
 /* Profile Form */
@@ -132,18 +135,19 @@
   grid-template-columns: 200px 1fr;
   gap: 2rem;
   padding: 2rem;
-  background: #f9f9f9;
-  border-radius: 8px;
-  border: 2px dashed var(--border-color);
+  background: transparent;
+  border-radius: 12px;
+  border: 2px dashed var(--card-border);
 }
 
 .image-preview {
   width: 200px;
   height: 200px;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  background: white;
-  border: 2px solid var(--border-color);
+  background: transparent;
+  border: 2px solid var(--card-border);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,35 +203,44 @@
 .profile-form input,
 .profile-form textarea {
   padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
   font-family: inherit;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: transparent;
+  color: var(--page-text);
 }
 
 .profile-form input:focus,
 .profile-form textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+}
+
+.profile-form input::placeholder,
+.profile-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .save-btn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
+  background: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--card-border);
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
-  transition: background-color 0.3s;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.18);
   align-self: flex-start;
 }
 
 .save-btn:hover {
-  background-color: #0052a3;
+  color: var(--primary-color);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.28);
 }
 
 /* Items List */
