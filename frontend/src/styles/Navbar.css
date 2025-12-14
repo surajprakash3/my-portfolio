@@ -1,10 +1,11 @@
 /* Navbar Styles */
 .navbar {
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--nav-bg);
+  box-shadow: var(--nav-shadow);
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid var(--nav-border);
 }
 
 .navbar-container {
@@ -19,8 +20,9 @@
 .navbar-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: var(--nav-text);
   text-decoration: none;
+  letter-spacing: 0.01em;
 }
 
 .navbar-menu {
@@ -32,7 +34,7 @@
 
 .navbar-menu a {
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--nav-text);
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -42,7 +44,7 @@
 }
 
 .user-name {
-  color: var(--text-dark);
+  color: var(--nav-text);
   font-weight: 500;
 }
 
@@ -61,6 +63,19 @@
   background-color: #b91c1c;
 }
 
+.admin-login-link {
+  background-color: var(--primary-color);
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.admin-login-link:hover {
+  background-color: #5a67d8;
+  color: white !important;
+}
+
 .login-nav-link {
   background-color: var(--primary-color);
   color: white !important;
@@ -72,6 +87,26 @@
 .login-nav-link:hover {
   background-color: #5a67d8;
   color: white !important;
+}
+
+.theme-toggle {
+  border: 1px solid var(--nav-border);
+  background: transparent;
+  color: var(--nav-text);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 @media (max-width: 768px) {

@@ -1,16 +1,16 @@
 .experience-card {
-  background: white;
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   margin-bottom: 1rem;
-  border-left: 4px solid var(--primary-color);
-  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease;
+  color: #fff;
 }
 
 .experience-card:hover {
-  transform: translateX(5px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .experience-header {
@@ -23,7 +23,7 @@
 .experience-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: #fff;
   margin: 0;
 }
 
@@ -38,18 +38,18 @@
 
 .experience-company {
   font-size: 1rem;
-  color: var(--primary-color);
+  color: #fff;
   margin: 0.25rem 0 0.5rem 0;
 }
 
 .experience-dates {
   font-size: 0.9rem;
-  color: #999;
+  color: #fff;
   margin-bottom: 0.75rem;
 }
 
 .experience-description {
-  color: #666;
+  color: #fff;
   line-height: 1.6;
   margin-bottom: 1rem;
 }

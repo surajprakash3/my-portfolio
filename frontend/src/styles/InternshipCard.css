@@ -1,0 +1,32 @@
+
+.internship-card {
+  background: transparent;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+
+.internship-card:hover { transform: translateY(-2px); }
+
+.internship-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.internship-title { font-size: 1.2rem; font-weight: 600; color: #fff; margin: 0; }
+.current-badge { background-color: var(--success-color); color: #fff; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+
+.internship-company { font-size: 1rem; color: #fff; margin: 0.25rem 0 0.5rem 0; }
+.internship-location { font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem; }
+.internship-dates { font-size: 0.9rem; color: #fff; margin-bottom: 0.75rem; }
+.internship-description { color: #fff; line-height: 1.6; margin-bottom: 1rem; }
+
+.admin-actions { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.edit-btn { background-color: var(--primary-color); color: #fff; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; }
+.delete-btn { background-color: var(--error-color); color: #fff; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; }
+.edit-btn:hover { background-color: #0052a3; }
+.delete-btn:hover { background-color: #b91c1c; }
+
+@media (max-width: 768px) {
+  .internship-card { padding: 1rem; }
+  .internship-title { font-size: 1.1rem; }
+}

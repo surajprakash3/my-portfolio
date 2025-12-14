@@ -1,0 +1,19 @@
+
+.recommendation-card { background: transparent; border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.08); color: #fff; transition: transform 0.3s ease; }
+.recommendation-card:hover { transform: translateY(-2px); }
+.rec-header { margin-bottom: 1rem; }
+.rec-text { font-style: italic; color: #fff; font-size: 1rem; line-height: 1.6; margin: 0; }
+.rec-by { margin-bottom: 0.5rem; }
+.rec-by strong { color: #fff; }
+.rec-title { opacity: 0.9; margin-left: 0.5rem; font-size: 0.95rem; }
+.rec-company { opacity: 0.8; margin-left: 0.25rem; font-size: 0.9rem; }
+.rec-relationship { font-size: 0.85rem; opacity: 0.85; margin-bottom: 0.5rem; }
+.rec-rating { font-size: 1rem; margin-bottom: 0.75rem; letter-spacing: 0.1em; }
+.rec-links { margin-bottom: 1rem; }
+.rec-links a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+.admin-actions { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.edit-btn { background-color: var(--primary-color); color: #fff; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; }
+.delete-btn { background-color: var(--error-color); color: #fff; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; }
+.edit-btn:hover { background-color: #0052a3; }
+.delete-btn:hover { background-color: #b91c1c; }
+@media (max-width: 768px) { .recommendation-card { padding: 1rem; } .rec-text { font-size: 0.95rem; } }

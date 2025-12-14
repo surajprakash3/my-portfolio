@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [API_URL]);
 
   const login = useCallback(async (email, password) => {
     setLoading(true);
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [API_URL]);
 
   const logout = useCallback(() => {
     setUser(null);

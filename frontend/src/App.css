@@ -8,6 +8,10 @@
   --primary-color: #0066cc;
   --secondary-color: #00a86b;
   --accent-color: #ff6b35;
+  --bg-1: #7c3aed;
+  --bg-2: #22d3ee;
+  --bg-3: #a78bfa;
+  --bg-4: #0ea5e9;
   --dark-bg: #0f0f1e;
   --light-bg: #f5f5f5;
   --text-dark: #1a1a2e;
@@ -15,6 +19,46 @@
   --border-color: #e0e0e0;
   --error-color: #dc2626;
   --success-color: #16a34a;
+  --nav-bg: #ffffff;
+  --nav-text: #1a1a2e;
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --page-text: #e4e4e7;
+  --card-bg: #ffffff;
+  --card-text: #1a1a2e;
+  --card-border: #e0e0e0;
+}
+
+[data-theme="light"] {
+  --nav-bg: #ffffff;
+  --nav-text: #1a1a2e;
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --page-text: #1a1a2e;
+  --text-dark: #1a1a2e;
+  --text-light: #2a2a3c;
+  --light-bg: #f5f5f5;
+  --dark-bg: #0a0a1a;
+  --border-color: #e0e0e0;
+  --card-bg: #ffffff;
+  --card-text: #1a1a2e;
+  --card-border: #e5e5e5;
+}
+
+[data-theme="dark"] {
+  --nav-bg: rgba(10, 10, 26, 0.9);
+  --nav-text: #e4e4e7;
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --page-text: #e4e4e7;
+  --text-dark: #e4e4e7;
+  --text-light: #f5f5f5;
+  --light-bg: #0f0f1e;
+  --dark-bg: #0a0a1a;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --card-bg: rgba(20, 20, 35, 0.78);
+  --card-text: #e4e4e7;
+  --card-border: rgba(255, 255, 255, 0.12);
 }
 
 html {
@@ -23,19 +67,55 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--light-bg);
-  color: var(--text-dark);
+  background: #0a0a1a;
+  color: var(--page-text);
   line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.vanta-wrapper {
+  min-height: 100vh;
+  position: relative;
+  background: #0a0a1a;
+  overflow: hidden;
 }
 
 .main-content {
   flex: 1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatBlobs {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-2%, 1.5%, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(3%, -2%, 0) scale(1.06);
+  }
 }
 
 /* Utility classes */

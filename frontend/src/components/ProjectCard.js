@@ -4,9 +4,6 @@ import '../styles/ProjectCard.css';
 const ProjectCard = ({ project, onEdit, onDelete, isAdmin = false }) => {
   return (
     <div className="project-card">
-      {project.image && (
-        <img src={project.image} alt={project.title} className="project-image" />
-      )}
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
         <p className="project-description">{project.description}</p>

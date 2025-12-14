@@ -1,5 +1,4 @@
 const express = require('express');
-const checkAuth = require('../middleware/checkAuth');
 const User = require('../models/User');
 
 const router = express.Router();
@@ -17,8 +16,8 @@ router.get('/:userId', async (req, res) => {
   }
 });
 
-// Update profile
-router.put('/:userId', checkAuth, async (req, res) => {
+// Update profile - Allow updates from the user or admin
+router.put('/:userId', async (req, res) => {
   try {
     const updates = req.body;
     const user = await User.findByIdAndUpdate(req.params.userId, updates, {

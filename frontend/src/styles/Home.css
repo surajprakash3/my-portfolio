@@ -4,11 +4,24 @@
 }
 
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent; /* let global background show */
   color: white;
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   text-align: center;
   margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-content {
@@ -18,10 +31,36 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
+  animation: slideInDown 0.8s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-image {
   margin-bottom: 1rem;
+  animation: scaleIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .profile-photo {
@@ -29,28 +68,108 @@
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 6px solid white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 0.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -1px;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .subtitle {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
-  opacity: 0.95;
+  opacity: 0.98;
+  font-weight: 500;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .bio {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   max-width: 600px;
   margin: 1rem auto;
   line-height: 1.8;
+  opacity: 0.95;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.profile-info {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.info-item {
+  font-size: 1rem;
+  margin: 0.75rem 0;
   opacity: 0.9;
+  line-height: 1.6;
+}
+
+.info-label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.profile-info a {
+  color: white;
+  text-decoration: underline;
+  transition: opacity 0.3s;
+}
+.social-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.social-badge {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #0a0a1a;
+  background: rgba(255, 255, 255, 0.9);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.social-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.social-badge.github { background: linear-gradient(180deg, #ffffff, #e6f2ff); }
+.social-badge.linkedin { background: linear-gradient(180deg, #ffffff, #eaf4ff); }
+.social-badge.twitter { background: linear-gradient(180deg, #ffffff, #eef9ff); }
+
+.profile-info a:hover {
+  opacity: 0.8;
 }
 
 .hero-links {
@@ -63,7 +182,7 @@
 .hero-links a {
   display: inline-block;
   background-color: white;
-  color: #667eea;
+  color: var(--primary-color);
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
@@ -80,7 +199,7 @@
 .login-link {
   display: inline-block;
   background-color: white;
-  color: #667eea;
+  color: var(--primary-color);
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
@@ -97,7 +216,7 @@
 /* Projects Section */
 .projects-section {
   padding: 4rem 2rem;
-  background-color: white;
+  background-color: transparent;
 }
 
 .section-container {
@@ -109,7 +228,7 @@
   font-size: 2rem;
   margin-bottom: 3rem;
   text-align: center;
-  color: var(--text-dark);
+  color: #b36bff; /* purple heading */
 }
 
 .projects-grid {
@@ -121,7 +240,7 @@
 /* Skills Section */
 .skills-section {
   padding: 4rem 2rem;
-  background-color: var(--light-bg);
+  background-color: transparent;
 }
 
 .skills-categories {
@@ -145,7 +264,7 @@
 /* Experience Section */
 .experience-section {
   padding: 4rem 2rem;
-  background-color: white;
+  background-color: transparent;
 }
 
 .experience-list {

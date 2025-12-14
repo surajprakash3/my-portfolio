@@ -1,14 +1,15 @@
 .skill-card {
-  background: white;
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease;
+  color: #fff;
 }
 
 .skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .skill-header {
@@ -21,16 +22,16 @@
 .skill-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: #fff;
 }
 
 .skill-category {
-  background-color: #f3f4f6;
+  background-color: rgba(255, 255, 255, 0.08);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-  color: #666;
+  color: #fff;
 }
 
 .skill-proficiency {
@@ -57,7 +58,7 @@
 .proficiency-label {
   font-size: 0.85rem;
   font-weight: 500;
-  color: #666;
+  color: #fff;
   white-space: nowrap;
 }
 

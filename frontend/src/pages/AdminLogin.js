@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../styles/AdminLogin.css';
 
 const AdminLogin = ({ onLoginSuccess }) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,23 +17,32 @@ const AdminLogin = ({ onLoginSuccess }) => {
     setLoading(true);
 
     try {
-      // Simple hardcoded admin credentials
-      if (username === 'admin' && password === 'admin') {
-        // Create or get default portfolio user
+      // Try to login with backend
+      const response = await axios.post(`${API_URL}/auth/login`, {
+        email,
+        password,
+      });
+
+      if (response.data && response.data.token) {
+        // Get or create default portfolio user
         const portfolioUser = await getOrCreatePortfolioUser();
         
-        // Store admin token in localStorage
-        localStorage.setItem('adminToken', 'admin-authenticated-' + Date.now());
+        // Store admin token and user info in localStorage
+        localStorage.setItem('adminToken', response.data.token);
         localStorage.setItem('isAdminLoggedIn', 'true');
         localStorage.setItem('portfolioUserId', portfolioUser._id);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
         
         onLoginSuccess();
         navigate('/admin');
       } else {
-        setError('Invalid username or password');
+        setError('Login failed: Invalid response from server');
       }
     } catch (err) {
-      setError('Login failed: ' + err.message);
+      const errorMsg = err.response?.data?.message || err.message || 'Login failed';
+      setError(errorMsg);
+      console.error('Login error:', err);
     }
 
     setLoading(false);
@@ -70,13 +79,14 @@ const AdminLogin = ({ onLoginSuccess }) => {
 
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label>Username</label>
+            <label>Email</label>
             <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter username"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter email"
               disabled={loading}
+              required
             />
           </div>
 
@@ -88,6 +98,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter password"
               disabled={loading}
+              required
             />
           </div>
 
@@ -98,8 +109,8 @@ const AdminLogin = ({ onLoginSuccess }) => {
 
         <div className="demo-credentials">
           <p><strong>Demo Credentials:</strong></p>
-          <p>Username: <code>admin</code></p>
-          <p>Password: <code>admin</code></p>
+          <p>Email: <code>demo@portfolio.local</code></p>
+          <p>Password: <code>demo123</code></p>
         </div>
       </div>
     </div>

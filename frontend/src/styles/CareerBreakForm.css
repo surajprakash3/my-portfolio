@@ -1,0 +1,71 @@
+.career-break-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.career-break-form .form-group {
+  margin-bottom: 15px;
+}
+
+.career-break-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.career-break-form input,
+.career-break-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.career-break-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.career-break-form textarea {
+  resize: vertical;
+}
+
+.career-break-form .form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.career-break-form .submit-btn,
+.career-break-form .cancel-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.career-break-form .submit-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.career-break-form .submit-btn:hover {
+  background: #45a049;
+}
+
+.career-break-form .cancel-btn {
+  background: #f44336;
+  color: white;
+}
+
+.career-break-form .cancel-btn:hover {
+  background: #da190b;
+}

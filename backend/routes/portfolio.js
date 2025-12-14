@@ -6,16 +6,18 @@ const router = express.Router();
 // Get or create default portfolio user
 router.get('/user', async (req, res) => {
   try {
-    // Try to find the default portfolio user
-    let user = await User.findOne({ email: 'portfolio@admin.local' });
+    // Try to find the demo portfolio user (same one used for admin login)
+    let user = await User.findOne({ email: 'demo@portfolio.local' });
     
     if (!user) {
-      // Create default user if it doesn't exist
+      // Create demo user if it doesn't exist
       user = new User({
-        firstName: 'Portfolio',
-        lastName: 'Owner',
-        email: 'portfolio@admin.local',
-        password: 'portfolio-admin', // Will be hashed automatically
+        firstName: 'Demo',
+        lastName: 'User',
+        email: 'demo@portfolio.local',
+        password: 'demo123', // Will be hashed automatically
+        title: 'Full Stack Developer',
+        bio: 'This is a demo portfolio account for testing.',
       });
       await user.save();
     }

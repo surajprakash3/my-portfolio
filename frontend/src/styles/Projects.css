@@ -24,9 +24,12 @@
 .login-prompt {
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  color: white;
+  color: var(--text-light);
   font-size: 1.1rem;
 }
 
@@ -44,9 +47,12 @@
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  color: #999;
+  color: var(--text-light);
   font-size: 1.1rem;
 }
 
