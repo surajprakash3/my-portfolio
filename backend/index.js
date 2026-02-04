@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 const initializeDemoUser = async () => {
   try {
     const User = require('./models/User');
-    const demoEmail = 'surajprak101@gmail.com';
+    const demoEmail = process.env.ADMIN_EMAIL
     
     // Check if demo user already exists
     const existingUser = await User.findOne({ email: demoEmail });
@@ -40,7 +40,7 @@ const initializeDemoUser = async () => {
     if (!existingUser) {
       const demoUser = new User({
         email: demoEmail,
-        password: 'suraj123', // Will be hashed automatically
+        password: process.env.ADMIN_PASS, // Will be hashed automatically
         firstName: 'Suraj',
         lastName: 'Prakash',
         title: 'Full Stack Developer',
