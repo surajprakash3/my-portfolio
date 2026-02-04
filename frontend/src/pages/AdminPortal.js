@@ -25,7 +25,6 @@ import CareerBreakForm from '../components/CareerBreakForm';
 import CareerBreakCard from '../components/CareerBreakCard';
 import EventForm from '../components/EventForm';
 import EventCard from '../components/EventCard';
-import SocialMediaSection from '../components/SocialMediaSection';
 import SocialMediaForm from '../components/SocialMediaForm';
 import LoadingSpinner from '../components/LoadingSpinner';
 import '../styles/AdminPortal.css';
@@ -93,7 +92,6 @@ const AdminPortal = () => {
     deleteCareerBreak,
     events,
     addEvent,
-    updateEvent,
     deleteEvent,
   } = usePortfolio();
 
@@ -240,6 +238,8 @@ const AdminPortal = () => {
       await updateProfile(userId, sanitizedProfile);
       await fetchProfile(userId);
       alert('Profile updated successfully!');
+      // Trigger refresh on Home page
+      window.dispatchEvent(new Event('portfolio-updated'));
     } catch (error) {
       const msg = error?.response?.data?.message || error.message;
       alert('Failed to update profile: ' + msg);
@@ -263,6 +263,8 @@ const AdminPortal = () => {
       }
       setShowProjectForm(false);
       setEditingProject(null);
+      // Trigger refresh on Home page
+      window.dispatchEvent(new Event('portfolio-updated'));
     } catch (error) {
       alert('Failed to save project: ' + error.message);
     }
@@ -296,6 +298,8 @@ const AdminPortal = () => {
       }
       setShowSkillForm(false);
       setEditingSkill(null);
+      // Trigger refresh on Home page
+      window.dispatchEvent(new Event('portfolio-updated'));
     } catch (error) {
       alert('Failed to save skill: ' + error.message);
     }
@@ -329,6 +333,8 @@ const AdminPortal = () => {
       }
       setShowExperienceForm(false);
       setEditingExperience(null);
+      // Trigger refresh on Home page
+      window.dispatchEvent(new Event('portfolio-updated'));
     } catch (error) {
       alert('Failed to save experience: ' + error.message);
     }
@@ -363,6 +369,8 @@ const AdminPortal = () => {
       }
       setShowCertificateForm(false);
       setEditingCertificate(null);
+      // Trigger refresh on Home page
+      window.dispatchEvent(new Event('portfolio-updated'));
     } catch (error) {
       alert('Failed to save certificate: ' + error.message);
     }
@@ -395,6 +403,8 @@ const AdminPortal = () => {
       }
       setShowInternshipForm(false);
       setEditingInternship(null);
+      // Trigger refresh on Home page
+      window.dispatchEvent(new Event('portfolio-updated'));
     } catch (error) {
       alert('Failed to save internship: ' + error.message);
     }
@@ -951,6 +961,8 @@ const AdminPortal = () => {
                   }
                   setShowCourseForm(false);
                   setEditingCourse(null);
+                  // Trigger refresh on Home page
+                  window.dispatchEvent(new Event('portfolio-updated'));
                 } catch (error) {
                   alert('Failed to save course: ' + error.message);
                 }
@@ -975,6 +987,8 @@ const AdminPortal = () => {
                       try {
                         await deleteCourse(id);
                         alert('Course deleted successfully!');
+                        // Trigger refresh on Home page
+                        window.dispatchEvent(new Event('portfolio-updated'));
                       } catch (error) {
                         alert('Failed to delete course: ' + error.message);
                       }
@@ -1021,6 +1035,8 @@ const AdminPortal = () => {
                   }
                   setShowRecommendationForm(false);
                   setEditingRecommendation(null);
+                  // Trigger refresh on Home page
+                  window.dispatchEvent(new Event('portfolio-updated'));
                 } catch (error) {
                   alert('Failed to save recommendation: ' + error.message);
                 }
@@ -1045,6 +1061,8 @@ const AdminPortal = () => {
                       try {
                         await deleteRecommendation(id);
                         alert('Recommendation deleted successfully!');
+                        // Trigger refresh on Home page
+                        window.dispatchEvent(new Event('portfolio-updated'));
                       } catch (error) {
                         alert('Failed to delete recommendation: ' + error.message);
                       }
@@ -1091,6 +1109,8 @@ const AdminPortal = () => {
                   }
                   setShowServiceForm(false);
                   setEditingService(null);
+                  // Trigger refresh on Home page
+                  window.dispatchEvent(new Event('portfolio-updated'));
                 } catch (error) {
                   alert('Failed to save service: ' + error.message);
                 }
@@ -1115,6 +1135,8 @@ const AdminPortal = () => {
                       try {
                         await deleteService(id);
                         alert('Service deleted successfully!');
+                        // Trigger refresh on Home page
+                        window.dispatchEvent(new Event('portfolio-updated'));
                       } catch (error) {
                         alert('Failed to delete service: ' + error.message);
                       }
@@ -1161,6 +1183,8 @@ const AdminPortal = () => {
                   }
                   setShowCareerBreakForm(false);
                   setEditingCareerBreak(null);
+                  // Trigger refresh on Home page
+                  window.dispatchEvent(new Event('portfolio-updated'));
                 } catch (error) {
                   alert('Failed to save career break: ' + error.message);
                 }
@@ -1185,6 +1209,8 @@ const AdminPortal = () => {
                       try {
                         await deleteCareerBreak(id);
                         alert('Career break deleted successfully!');
+                        // Trigger refresh on Home page
+                        window.dispatchEvent(new Event('portfolio-updated'));
                       } catch (error) {
                         alert('Failed to delete career break: ' + error.message);
                       }
@@ -1214,6 +1240,8 @@ const AdminPortal = () => {
                   const userId = user?.id || portfolioUserId;
                   await addEvent({ ...eventData, userId });
                   setShowEventForm(false);
+                  // Trigger refresh on Home page
+                  window.dispatchEvent(new Event('portfolio-updated'));
                 } catch (error) {
                   alert('Failed to add event: ' + error.message);
                 }
@@ -1234,6 +1262,8 @@ const AdminPortal = () => {
                     if (window.confirm('Are you sure?')) {
                       try {
                         await deleteEvent(eventId);
+                        // Trigger refresh on Home page
+                        window.dispatchEvent(new Event('portfolio-updated'));
                       } catch (error) {
                         alert('Failed to delete event: ' + error.message);
                       }

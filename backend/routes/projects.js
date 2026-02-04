@@ -31,16 +31,34 @@ router.get('/:id', async (req, res) => {
 router.post('/', checkAuth, async (req, res) => {
   try {
     const userId = req.body.userId || req.userId;
-    const project = new Project({
+    
+    if (!userId) {
+      return res.status(400).json({ message: 'userId is required' });
+    }
+
+    const projectData = {
       userId,
-      ...req.body,
-    });
-    await project.save();
+      title: req.body.title,
+      description: req.body.description,
+      longDescription: req.body.longDescription,
+      image: req.body.image,
+      technologies: req.body.technologies,
+      github: req.body.github,
+      liveLink: req.body.liveLink,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      featured: req.body.featured,
+    };
+
+    const project = new Project(projectData);
+    const savedProject = await project.save();
+    
     res.status(201).json({
       message: 'Project created successfully',
-      project,
+      project: savedProject,
     });
   } catch (error) {
+    console.error('Error creating project:', error);
     res.status(500).json({ message: 'Error creating project', error: error.message });
   }
 });

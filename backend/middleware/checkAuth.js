@@ -9,8 +9,11 @@ const checkAuth = (req, res, next) => {
     // Admin can access with any admin token
     if (adminToken.startsWith('admin-authenticated-') || adminToken === 'admin') {
       req.isAdmin = true;
-      // Extract userId from request body or params for admin requests
-      req.userId = req.body.userId || req.params.userId || 'admin';
+      // Extract userId from request body for admin requests
+      req.userId = req.body.userId;
+      if (!req.userId) {
+        return res.status(400).json({ message: 'userId is required in request body' });
+      }
       return next();
     }
   }

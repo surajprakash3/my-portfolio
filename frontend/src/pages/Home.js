@@ -67,8 +67,19 @@ const Home = () => {
       }
     };
 
+    // Also listen for custom refresh event from AdminPortal
+    const handleCustomRefresh = () => {
+      if (portfolioUserId) {
+        setRefreshTrigger(prev => prev + 1);
+      }
+    };
+
     window.addEventListener('focus', handleFocus);
-    return () => window.removeEventListener('focus', handleFocus);
+    window.addEventListener('portfolio-updated', handleCustomRefresh);
+    return () => {
+      window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('portfolio-updated', handleCustomRefresh);
+    };
   }, [portfolioUserId]);
 
   if (loading) return <LoadingSpinner />;
@@ -83,7 +94,7 @@ const Home = () => {
               <img src={profile.profileImage} alt={profile.firstName} className="profile-photo" />
             </div>
           )}
-          <h1>Hello, I'm {profile?.firstName} {profile?.lastName}</h1>
+          <h1>{profile?.firstName} {profile?.lastName}</h1>
           <p className="bio">{profile?.bio || 'Passionate about building amazing web applications'}</p>
           
           {/* Additional Profile Info */}

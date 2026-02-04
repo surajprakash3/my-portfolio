@@ -18,10 +18,13 @@ fs.mkdirSync(uploadsRoot, { recursive: true });
 app.use('/uploads', express.static(uploadsRoot));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, {
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+})
 .then(() => {
   console.log('MongoDB Atlas connected');
-  initializeDemoUser();
+  // initializeDemoUser();
 })
 .catch(err => console.log('MongoDB connection error:', err));
 
@@ -29,7 +32,7 @@ mongoose.connect(process.env.MONGODB_URI)
 const initializeDemoUser = async () => {
   try {
     const User = require('./models/User');
-    const demoEmail = 'demo@portfolio.local';
+    const demoEmail = 'surajprak101@gmail.com';
     
     // Check if demo user already exists
     const existingUser = await User.findOne({ email: demoEmail });
@@ -37,17 +40,17 @@ const initializeDemoUser = async () => {
     if (!existingUser) {
       const demoUser = new User({
         email: demoEmail,
-        password: 'demo123', // Will be hashed automatically
-        firstName: 'Demo',
-        lastName: 'User',
+        password: 'suraj123', // Will be hashed automatically
+        firstName: 'Suraj',
+        lastName: 'Prakash',
         title: 'Full Stack Developer',
-        bio: 'This is a demo portfolio account for testing.',
+        bio: 'tech',
+        
       });
       
       await demoUser.save();
       console.log('✓ Demo user created successfully');
-      console.log('  Email: demo@portfolio.local');
-      console.log('  Password: demo123');
+
     }
   } catch (error) {
     console.error('Error initializing demo user:', error.message);
